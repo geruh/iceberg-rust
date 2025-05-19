@@ -16,6 +16,7 @@
 // under the License.
 
 use super::{ManifestsTable, SnapshotsTable};
+use crate::inspect::refs::RefsTable;
 use crate::table::Table;
 
 /// Metadata table is used to inspect a table's history, snapshots, and other metadata as a table.
@@ -41,6 +42,11 @@ impl<'a> MetadataTable<'a> {
     /// Get the manifests table.
     pub fn manifests(&self) -> ManifestsTable {
         ManifestsTable::new(self.0)
+    }
+
+    /// Get the refs table.
+    pub fn refs(&self) -> RefsTable {
+        RefsTable::new(self.0)
     }
 }
 
